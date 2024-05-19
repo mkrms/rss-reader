@@ -1,3 +1,7 @@
+## 本開発のナレッジ（Qiira）
+[第一回](https://qiita.com/unotame/items/87c148154f2f581c980d)
+[第二回](https://qiita.com/unotame/items/50a7fedfc0f2c4589aea) 
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
