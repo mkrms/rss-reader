@@ -1,0 +1,19 @@
+.p-front-page {
+  $this: &;
+  height: 120rem;
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 1.5%;
+    &__item {
+      width: 32%;
+      padding: 1rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 1rem #ddd;
+      &--title {
+        font-size: 2rem;
+      }
+    }
+  }
+}

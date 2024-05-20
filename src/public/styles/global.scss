@@ -1,0 +1,32 @@
+:root {
+  --c-primary: #0a0a0a;
+}
+
+@mixin sp {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin ov-pc {
+  @media screen and (min-width: 1367px) {
+    @content;
+  }
+}
+
+#html {
+  font-size: calc(10 / 1366 * 100vw);
+
+  @include sp {
+    font-size: calc(10 / 375 * 100vw);
+  }
+  body {
+    font-size: 1.6rem;
+    overflow-x: hidden;
+    padding-top: 10rem;
+  }
+}
+
+.l-inner {
+  width: 72%;
+  margin-inline: auto;
+}
