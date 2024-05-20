@@ -1,0 +1,46 @@
+.c-article-card {
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &--img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    background-color: #ccc;
+    border-radius: 1rem;
+  }
+
+  &--time {
+    display: block;
+    font-size: 1.2rem;
+    color: #aaa;
+    padding: 1rem 0;
+  }
+  &--title {
+    //行数指定省略
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* 任意の行数を指定 */
+    flex-grow: 1;
+    font-weight: bold;
+  }
+
+  &--site-title {
+    position: absolute;
+    top: 8%;
+    left: 5%;
+    display: block;
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    background-color: var(--c-primary);
+    color: white;
+    font-size: 1.2rem;
+    margin-left: auto;
+  }
+
+  &--category {
+  }
+}

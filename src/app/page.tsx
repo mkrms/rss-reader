@@ -1,28 +1,32 @@
+import { client, getList } from '@/libs/client'
 import styles from './FrontPage.module.scss'
-import { client } from '@/libs/client'
+import Parser from 'rss-parser'
 
-type RSS = {
-  title: string
-}
+import ArticleCard from '@/public/components/card/ArticleCard'
 
-export default async function Home() {
-  const data = await client.get({
-    endpoint: 'rss',
-  })
+const FrontPage = async () => {
+  const { contents } = await getList();
+  const parse = new Parser();
 
   return (
-    <main className={styles['p-front-page']}>
+    <div className='p-front-page'>
       <ul className={styles['p-front-page__list']}>
-        {data.contents.map((rss: RSS) => {
-          return (
-            <div className={styles['p-front-page__list__item']}>
-              <h2 className={styles['p-front-page__list__item--title']}>
-                {rss.title}
-              </h2>
-            </div>
-          )
+        {contents.map(async (rss) => {
+          const feed = await parse.parseURL(rss.url)
+          return feed.items.map((item) => {
+            return (
+              <ArticleCard
+                date={item.pubDate ?? item.date}
+                link={item.link}
+                title={item.title}
+                site_title={rss.title}
+              />
+            )
+          })
         })}
       </ul>
-    </main>
+    </div>
   )
 }
+
+export default FrontPage

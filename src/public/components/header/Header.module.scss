@@ -1,0 +1,27 @@
+.c-header {
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8rem;
+  box-shadow: 0 0.5rem 0.5rem #ccc;
+  padding-inline: 8rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-weight: bold;
+  background-color: white;
+  &__nav {
+    &__list {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      &__item {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
