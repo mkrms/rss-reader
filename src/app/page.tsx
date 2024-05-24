@@ -5,8 +5,13 @@ import Parser from 'rss-parser'
 import ArticleCard from '@/public/components/card/ArticleCard'
 
 const FrontPage = async () => {
+
   const { contents } = await getList();
-  const parse = new Parser();
+  const parse = new Parser({
+    customFields: {
+      item: [['media:thumbnail', 'image']],
+    }
+  });
 
   return (
     <div className='p-front-page'>
@@ -16,7 +21,8 @@ const FrontPage = async () => {
           return feed.items.map((item) => {
             return (
               <ArticleCard
-                date={item.pubDate ?? item.date}
+                thumbnail={item.enclosure?.url ?? item.image}
+                date={item.pubDate}
                 link={item.link}
                 title={item.title}
                 site_title={rss.title}

@@ -7,6 +7,7 @@ type Props = {
   date: string | undefined
   link: string | undefined
   title: string | undefined
+  thumbnail: string | undefined
   site_title: string
 }
 
@@ -18,7 +19,7 @@ const ArticleCard = (props: Props) => {
   return (
     <li style={{ order: getOrder(dayjs(props.date).valueOf()) }} className={styles['c-article-card']}>
       <Link href={`${props.link}`}>
-        <img src="" alt="" className={styles['c-article-card--img']} />
+        <img src={`${props.thumbnail}`} alt="" className={styles['c-article-card--img']} />
         <time className={styles['c-article-card--time']}>{dayjs(props.date).format('YYYY-MM-DD')}</time>
         <h2 className={styles['c-article-card--title']}>{props.title}</h2>
         <span className={styles['c-article-card--site-title']}>{props.site_title}</span>
